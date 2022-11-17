@@ -1,5 +1,5 @@
 # dci-icon-theme
-
+````
 Usage: dci-icon-theme [options] ~/dci-png-icons
 
 Options:
@@ -20,3 +20,4 @@ Arguments:
   source                          Search the given directory and it's
                                   subdirectories, get the files conform to rules
                                   of --match.
+````
