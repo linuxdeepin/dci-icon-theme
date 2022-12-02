@@ -31,16 +31,26 @@ static inline QByteArray webpImageData(const QImage &image, int quality) {
 
 static bool writeImage(DDciFile &dci, const QString &imageFile, const QString &targetDir)
 {
-    QImage image(imageFile);
-    if (image.isNull()) {
+    QImageReader image(imageFile);
+    if (!image.canRead()) {
         qWarning() << "Ignore the null image file:" << imageFile;
         return false;
     }
 
     dciChecker(dci.mkdir(targetDir + "/2"));
     dciChecker(dci.mkdir(targetDir + "/3"));
-    dciChecker(dci.writeFile(targetDir + "/2/1.webp", webpImageData(image.scaledToWidth(512, Qt::SmoothTransformation), 100)));
-    dciChecker(dci.writeFile(targetDir + "/3/1.webp", webpImageData(image.scaledToWidth(768, Qt::SmoothTransformation), 90)));
+
+    if (image.supportsOption(QImageIOHandler::ScaledSize)) {
+        image.setScaledSize(QSize(512, 512));
+    }
+
+    dciChecker(dci.writeFile(targetDir + "/2/1.webp", webpImageData(image.read().scaledToWidth(512, Qt::SmoothTransformation), 100)));
+
+    if (image.supportsOption(QImageIOHandler::ScaledSize)) {
+        image.setScaledSize(QSize(768, 768));
+    }
+
+    dciChecker(dci.writeFile(targetDir + "/3/1.webp", webpImageData(image.read().scaledToWidth(768, Qt::SmoothTransformation), 90)));
     return true;
 }
 
