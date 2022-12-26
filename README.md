@@ -15,7 +15,7 @@ Options:
   --fix-dark-theme                Create symlinks from light theme for dark
                                   theme files.
   -h, --help                      Displays help on commandline options.
-  --help-all                      Displays help including Qt specific options.
+
   -v, --version                   Displays version information.
 
 Arguments:
