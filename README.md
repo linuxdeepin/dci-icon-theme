@@ -3,7 +3,7 @@
 Usage: dci-icon-theme [options] ~/dci-png-icons
 
 Options:
-  -m, --match <wirdcard palette>  Give wirdcard rules on search icon files,
+  -m, --match <wildcard palette>  Give wildcard rules on search icon files,
                                   Each eligible icon will be packaged to a dci
                                   file, If the icon have the dark mode, it needs
                                   to store the dark icon file at "dark/"
@@ -15,7 +15,7 @@ Options:
   --fix-dark-theme                Create symlinks from light theme for dark
                                   theme files.
   -h, --help                      Displays help on commandline options.
-  --help-all                      Displays help including Qt specific options.
+
   -v, --version                   Displays version information.
 
 Arguments:
