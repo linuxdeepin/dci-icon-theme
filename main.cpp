@@ -301,7 +301,7 @@ int main(int argc, char *argv[])
             }
             DDciFile dciFile;
 
-            qInfo() << "Wrting to dci file:" << dciFilePath;
+            qInfo() << "Writing to dci file:" << dciFilePath;
 
             dciChecker(dciFile.mkdir("/256"));
             dciChecker(dciFile.mkdir("/256/normal.light"));
